@@ -34,6 +34,7 @@
 
   homebrew = {
     enable = true; 
+    brewPrefix = "/opt/homebrew/bin";
     brews = [
       "goenv"
       "pyenv"
