@@ -30,6 +30,11 @@
             # User owning the Homebrew prefix
             user = userName;
 
+            # Optional: Declarative tap management
+            taps = {
+              "homebrew/homebrew-core" = homebrew-core;
+              "homebrew/homebrew-cask" = homebrew-cask;
+            };
             # Automatically migrate existing Homebrew installations
             autoMigrate = true;
           };

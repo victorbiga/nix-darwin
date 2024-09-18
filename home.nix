@@ -19,7 +19,13 @@
     home-manager = {
       enable = true;
     };
+    jq = {
+      enable = true;
+    };
     go = {
+      enable = true;
+    };
+    pyenv = {
       enable = true;
     };
   };
