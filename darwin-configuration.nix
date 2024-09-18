@@ -13,7 +13,6 @@
   # The platform the configuration will be used on.
   # If you're on an Intel system, replace with "x86_64-darwin"
   nixpkgs.hostPlatform = "aarch64-darwin";
-  };
   # Declare the user that will be running `nix-darwin`.
   users.users.victor = {
     name = "victor";
