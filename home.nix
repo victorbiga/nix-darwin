@@ -11,7 +11,7 @@
     sshs
     asciinema
     grpcurl
-    helm
+    kubernetes-helm
     helm-docs
     terraform
     terraform-docs
