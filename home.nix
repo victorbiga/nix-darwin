@@ -8,7 +8,7 @@
   ];
 
   home.file = {
-    ".config/nvim".source" = ./nvim;
+    ".config/nvim".source = ./nvim;
   };
 
   home.sessionVariables = {
