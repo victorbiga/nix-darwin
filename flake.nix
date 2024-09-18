@@ -10,11 +10,11 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nix-darwin, nix-homebrew, ... }: let
+  outputs = { self, nixpkgs, nix-darwin, nix-homebrew, home-manager, ... }: let 
    userName = "victor";
   in
   {
-    darwinConfigurations."victors-Virtual-Machine" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."Victors-Virtual-Machine" = nix-darwin.lib.darwinSystem {
       #specialArgs = { inherit overlays; };
       system = "aarch64-darwin";
       modules = [
@@ -33,6 +33,15 @@
             # Automatically migrate existing Homebrew installations
             autoMigrate = true;
           };
+        }
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.victor = import ./home.nix;
+
+          # Optionally, use home-manager.extraSpecialArgs to pass
+          # arguments to home.nix
         }
         ./darwin-configuration.nix
       ];
