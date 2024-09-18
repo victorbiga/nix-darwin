@@ -14,7 +14,7 @@
    userName = "victor";
   in
   {
-    darwinConfigurations."Victors-Virtual-Machine" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."victors-Virtual-Machine" = nix-darwin.lib.darwinSystem {
       #specialArgs = { inherit overlays; };
       system = "aarch64-darwin";
       modules = [
