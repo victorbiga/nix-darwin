@@ -36,7 +36,7 @@
     enable = true; 
     brews = [
       "kubectx"
-      "kubectl"
+      "kubernetes-cli"
       "istioctl"
     ];
     casks = [ 
