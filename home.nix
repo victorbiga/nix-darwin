@@ -22,4 +22,5 @@
     go = {
       enable = true;
     };
+  };
 }
