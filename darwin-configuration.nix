@@ -26,10 +26,8 @@
  
   environment.systemPackages = with pkgs; [
     nixpkgs-fmt
-    bat
     git
     neovim 
-    wget
   ];
 
   homebrew = {
@@ -38,9 +36,16 @@
       "istioctl"
     ];
     casks = [ 
-      "google-chrome"
-      "slack"
-      "notion"
+      google-chrome
+      slack
+      notion
+      raspberry-pi-imager
+      keycastr
+      vlc
+      calibre
+      firefox
+      iterm2
+
     ];
   };
 }

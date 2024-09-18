@@ -3,10 +3,20 @@
 {
   home.username = "victor";
   home.stateVersion = "23.05"; # Please read the comment before changing.
-  home.packages = [
-    pkgs.gnused
-    pkgs.kubectl
-    pkgs.kubectx
+  home.packages = with pkgs; [
+    gnused
+    kubectl
+    kubectx
+    istioctl
+    sshs
+    asciinema
+    grpcurl
+    helm
+    helm-docs
+    terraform
+    terraform-docs
+    terraform-ls
+    wget
   ];
 
   home.file = {
