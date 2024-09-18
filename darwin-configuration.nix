@@ -36,15 +36,15 @@
       "istioctl"
     ];
     casks = [ 
-      google-chrome
-      slack
-      notion
-      raspberry-pi-imager
-      keycastr
-      vlc
-      calibre
-      firefox
-      iterm2
+      "google-chrome"
+      "slack"
+      "notion"
+      "raspberry-pi-imager"
+      "keycastr"
+      "vlc"
+      "calibre"
+      "firefox"
+      "iterm2"
 
     ];
   };
