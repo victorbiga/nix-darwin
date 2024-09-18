@@ -33,7 +33,18 @@
   ];
 
   homebrew = {
-    casks = [ "google-chrome" ];
     enable = true; 
+    brews = [
+      "goenv"
+      "pyenv"
+      "kubectx"
+      "kubectl"
+      "istioctl"
+    ];
+    casks = [ 
+      "google-chrome"
+      "slack"
+      "notion"
+    ];
   };
 }
