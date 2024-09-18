@@ -35,8 +35,6 @@
   homebrew = {
     enable = true; 
     brews = [
-      "kubectx"
-      "kubernetes-cli"
       "istioctl"
     ];
     casks = [ 

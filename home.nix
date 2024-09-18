@@ -5,6 +5,8 @@
   home.stateVersion = "23.05"; # Please read the comment before changing.
   home.packages = [
     pkgs.gnused
+    pkgs.kubectl
+    pkgs.kubectx
   ];
 
   home.file = {
