@@ -9,7 +9,10 @@
   # Used for backwards compatibility. please read the changelog
   # before changing: `darwin-rebuild changelog`.
   system.stateVersion = 4;
-
+  system.activationScripts.extraActivation.text = ''
+    echo Installing Rosetta
+    softwareupdate --install-rosetta --agree-to-license
+  '';
   # The platform the configuration will be used on.
   # If you're on an Intel system, replace with "x86_64-darwin"
   nixpkgs.hostPlatform = "aarch64-darwin";
