@@ -44,5 +44,10 @@
       userName = "Victor Biga";
       userEmail = custom.email;
     };
+    neovim = {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+    };
   };
 }
