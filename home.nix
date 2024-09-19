@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, custom, ... }:
 {
-  home.username = "victor";
+  home.username = custom.userName;
   home.stateVersion = "23.05"; # Please read the comment before changing.
   home.packages = with pkgs; [
     gnused
@@ -42,7 +42,7 @@
     git = {
       enable = true;
       userName = "Victor Biga";
-      userEmail = "victor.biga@gmail.com";
+      userEmail = custom.email;
     };
   };
 }

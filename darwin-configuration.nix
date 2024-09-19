@@ -1,4 +1,4 @@
-{ pkgs, userName, ... }: {
+ { pkgs, custom, ... }: {
 
   services.nix-daemon.enable = true;
   # Necessary for using flakes on this system.
@@ -13,14 +13,12 @@
     echo Installing Rosetta
     softwareupdate --install-rosetta --agree-to-license
   '';
-  # The platform the configuration will be used on.
-  # If you're on an Intel system, replace with "x86_64-darwin"
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
   # Declare the user that will be running `nix-darwin`.
-  users.users.victor = {
-    name = "victor";
-    home = "/Users/victor";
+  users.users.${custom.userName} = {
+    name = custom.userName;
+    home = "/Users/" + custom.userName;
   };
 
   # Create /etc/zshrc that loads the nix-darwin environment.
@@ -36,16 +34,16 @@
   environment.systemPackages = with pkgs; [
     nixpkgs-fmt
     git
-    neovim 
+    neovim
   ];
 
   homebrew = {
-    enable = true; 
+    enable = true;
     brews = [
       "istioctl"
       "argocd"
     ];
-    casks = [ 
+    casks = [
       "google-chrome"
       "slack"
       "notion"

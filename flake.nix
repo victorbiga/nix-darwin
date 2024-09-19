@@ -11,54 +11,58 @@
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
       flake = false;
-    };    
+    };
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nix-darwin, nix-homebrew, home-manager, homebrew-core, homebrew-cask, ... }: 
-  let 
-   userName = "victor";
-  in
-  {
-    darwinConfigurations."Victors-Virtual-Machine" = nix-darwin.lib.darwinSystem {
-      #specialArgs = { inherit overlays; };
-      system = "aarch64-darwin";
-      modules = [
-        nix-homebrew.darwinModules.nix-homebrew
-        {
-          nix-homebrew = {
-            # Install Homebrew under the default prefix
-            enable = true;
+  outputs = { self, nixpkgs, nix-darwin, nix-homebrew, home-manager, homebrew-core, homebrew-cask, ... }:
+    let
+      custom = {
+        userName = "victor";
+        gitUserName = "Victor Biga";
+        email = "victor.biga@gmail.com";
+      };
+    in
+    {
+      darwinConfigurations."Victors-Virtual-Machine" = nix-darwin.lib.darwinSystem {
+        specialArgs = { inherit custom; };
+        system = "aarch64-darwin";
+        modules = [
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              # Install Homebrew under the default prefix
+              enable = true;
 
-            # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
-            enableRosetta = true;
+              # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
+              enableRosetta = true;
 
-            # User owning the Homebrew prefix
-            user = userName;
+              # User owning the Homebrew prefix
+              user = custom.userName;
 
-            # Optional: Declarative tap management
-            taps = {
-              "homebrew/homebrew-core" = homebrew-core;
-              "homebrew/homebrew-cask" = homebrew-cask;
+              # Optional: Declarative tap management
+              taps = {
+                "homebrew/homebrew-core" = homebrew-core;
+                "homebrew/homebrew-cask" = homebrew-cask;
+              };
+              # Automatically migrate existing Homebrew installations
+              autoMigrate = true;
             };
-            # Automatically migrate existing Homebrew installations
-            autoMigrate = true;
-          };
-        }
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.victor = import ./home.nix;
+          }
+          home-manager.darwinModules.home-manager
+          {
 
-          # Optionally, use home-manager.extraSpecialArgs to pass
-          # arguments to home.nix
-        }
-        ./darwin-configuration.nix
-      ];
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${custom.userName} = import ./home.nix;
+
+            home-manager.extraSpecialArgs = { inherit custom; };
+          }
+          ./darwin-configuration.nix
+        ];
+      };
     };
-  };
 }
