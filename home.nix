@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 {
   home.username = "victor";
   home.stateVersion = "23.05"; # Please read the comment before changing.
@@ -39,6 +38,11 @@
     };
     pyenv = {
       enable = true;
+    };
+    git = {
+      enable = true;
+      userName = "Victor Biga";
+      userEmail = "victor.biga@gmail.com";
     };
   };
 }

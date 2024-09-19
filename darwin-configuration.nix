@@ -22,9 +22,14 @@
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs = {
-    zsh.enable = true;
+    zsh = {
+      enable = true;
+      shellInit = ''
+        eval $(brew shellenv)
+      '';
+    };
   };
- 
+
   environment.systemPackages = with pkgs; [
     nixpkgs-fmt
     git
@@ -35,6 +40,7 @@
     enable = true; 
     brews = [
       "istioctl"
+      "argocd"
     ];
     casks = [ 
       "google-chrome"
