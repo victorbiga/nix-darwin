@@ -1,4 +1,3 @@
-  # If you're on an Intel system, replace with "x86_64-darwin"
 {
   description = "A very basic flake";
 
@@ -21,12 +20,7 @@
 
   outputs = { self, nixpkgs, nix-darwin, nix-homebrew, home-manager, homebrew-core, homebrew-cask, ... }:
     let
-      custom = {
-        userName = "victor";
-        gitUserName = "Victor Biga";
-        email = "victor.biga@gmail.com";
-        hostname = "Victors-Virtual-Machine";
-      };
+      custom = import ./vars.nix;
     in
     {
       darwinConfigurations.${custom.hostname} = nix-darwin.lib.darwinSystem {
@@ -36,21 +30,13 @@
           nix-homebrew.darwinModules.nix-homebrew
           {
             nix-homebrew = {
-              # Install Homebrew under the default prefix
               enable = true;
-
-              # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
               enableRosetta = true;
-
-              # User owning the Homebrew prefix
               user = custom.userName;
-
-              # Optional: Declarative tap management
               taps = {
                 "homebrew/homebrew-core" = homebrew-core;
                 "homebrew/homebrew-cask" = homebrew-cask;
               };
-              # Automatically migrate existing Homebrew installations
               autoMigrate = true;
             };
           }
