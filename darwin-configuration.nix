@@ -10,8 +10,17 @@
   # before changing: `darwin-rebuild changelog`.
   system.stateVersion = 4;
   system.activationScripts.extraActivation.text = ''
-    echo Installing Rosetta
-    softwareupdate --install-rosetta --agree-to-license
+    echo Checking if rosetta is intalled
+    if /usr/bin/pgrep oahd >/dev/null 2>&1; then
+        echo "Rosetta is already installed and running. Nothing to do."
+    else
+        /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+        if [[ $? -eq 0 ]]; then
+            echo "Rosetta has been successfully installed."
+        else
+            echo "Rosetta installation failed!"
+        fi
+    fi
   '';
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
