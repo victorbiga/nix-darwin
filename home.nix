@@ -33,10 +33,18 @@
     zsh = {
       enable = true;
       enableCompletion = true;
+      autosuggestion = { 
+        enable = true;
+      };  
       oh-my-zsh = {
         enable = true;
 
       };
+    };
+    oh-my-posh = {
+      enable = true;
+      enableZshIntegration = true;
+      useTheme = "catppuccin_frappe";
     };
     atuin = {
       enable = true;
