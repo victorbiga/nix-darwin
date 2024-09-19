@@ -53,6 +53,14 @@
       "argocd"
     ];
     casks = [
+      "discord"
+      "telegram"
+      "whatsapp"
+      "balenaetcher"
+      "obsidian"
+      "microsoft-remote-desktop"
+      "maccy"
+      "obs"
       "google-chrome"
       "slack"
       "notion"
