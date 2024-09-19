@@ -18,37 +18,20 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nix-darwin, nix-homebrew, home-manager, homebrew-core, homebrew-cask, ... }:
+  outputs = { self, nixpkgs, nix-darwin, nix-homebrew, home-manager, homebrew-core, homebrew-cask, ... }@ inputs:
     let
+      inherit (self) outputs;
       custom = import ./vars.nix;
     in
     {
       darwinConfigurations.${custom.hostname} = nix-darwin.lib.darwinSystem {
-        specialArgs = { inherit custom; };
+        specialArgs = { inherit custom inputs; };
         system = "aarch64-darwin";
         modules = [
           nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true;
-              enableRosetta = true;
-              user = custom.userName;
-              taps = {
-                "homebrew/homebrew-core" = homebrew-core;
-                "homebrew/homebrew-cask" = homebrew-cask;
-              };
-              autoMigrate = true;
-            };
-          }
+          ./nix-homebrew.nix
           home-manager.darwinModules.home-manager
-          {
-
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${custom.userName} = import ./home.nix;
-
-            home-manager.extraSpecialArgs = { inherit custom; };
-          }
+          ./home-manager.nix
           ./darwin-configuration.nix
         ];
       };
