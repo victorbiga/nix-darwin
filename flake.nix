@@ -25,10 +25,11 @@
         userName = "victor";
         gitUserName = "Victor Biga";
         email = "victor.biga@gmail.com";
+        hostname = "Victors-Virtual-Machine";
       };
     in
     {
-      darwinConfigurations."Victors-Virtual-Machine" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations.${custom.hostname} = nix-darwin.lib.darwinSystem {
         specialArgs = { inherit custom; };
         system = "aarch64-darwin";
         modules = [
