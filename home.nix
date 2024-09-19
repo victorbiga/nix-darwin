@@ -30,6 +30,18 @@
     home-manager = {
       enable = true;
     };
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      oh-my-zsh = {
+        enable = true;
+
+      };
+    };
+    atuin = {
+      enable = true;
+      enableZshIntegration = true;
+    };
     jq = {
       enable = true;
     };
