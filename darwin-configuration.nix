@@ -51,8 +51,10 @@
     brews = [
       "istioctl"
       "argocd"
+      "git-split-diffs"
     ];
     casks = [
+      "docker"
       "discord"
       "telegram"
       "whatsapp"
@@ -70,6 +72,7 @@
       "calibre"
       "firefox"
       "iterm2"
+      "utm"
 
     ];
   };

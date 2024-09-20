@@ -36,14 +36,15 @@
       autosuggestion = { 
         enable = true;
       };  
-      oh-my-zsh = {
-        enable = true;
-
-      };
+      shellAliases = import alias/alias.nix; 
+      plugins = [
+        { name = "you-should-use"; src = "${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use"; }
+      ];
     };
     oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
+      # Themes available https://ohmyposh.dev/docs/themes
       useTheme = "catppuccin_frappe";
     };
     atuin = {
