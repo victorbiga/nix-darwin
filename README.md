@@ -1,5 +1,5 @@
 [<img src="https://daiderd.com/nix-darwin/images/nix-darwin.png" width="200px" alt="logo" />](https://github.com/LnL7/nix-darwin)
-# mac nixos-darwin bootsrap
+# mac nix-darwin bootsrap
 
 ## Install x-code
 
