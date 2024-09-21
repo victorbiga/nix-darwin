@@ -44,6 +44,7 @@
     nixpkgs-fmt
     git
     neovim
+    flameshot
   ];
 
   homebrew = {

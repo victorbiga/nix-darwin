@@ -26,6 +26,7 @@
 
   home.sessionVariables = { };
 
+
   # Let Home Manager install and manage itself.
   programs = {
     home-manager = {
@@ -42,6 +43,11 @@
         { name = "you-should-use"; src = "${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use"; }
       ];
     };
+    
+    gh = {
+      enable = true;
+    };
+
     oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
