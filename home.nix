@@ -22,8 +22,7 @@
     ".config/nvim".source = ./nvim;
   };
 
-  home.sessionVariables = {
-  };
+  home.sessionVariables = { };
 
   # Let Home Manager install and manage itself.
   programs = {
@@ -33,10 +32,10 @@
     zsh = {
       enable = true;
       enableCompletion = true;
-      autosuggestion = { 
+      autosuggestion = {
         enable = true;
-      };  
-      shellAliases = import alias/alias.nix; 
+      };
+      shellAliases = import alias/alias.nix;
       plugins = [
         { name = "you-should-use"; src = "${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use"; }
       ];

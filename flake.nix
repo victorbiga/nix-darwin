@@ -27,13 +27,7 @@
       darwinConfigurations.${custom.hostname} = nix-darwin.lib.darwinSystem {
         specialArgs = { inherit custom inputs; };
         system = "aarch64-darwin";
-        modules = [
-          nix-homebrew.darwinModules.nix-homebrew
-          ./nix-homebrew.nix
-          home-manager.darwinModules.home-manager
-          ./home-manager.nix
-          ./darwin-configuration.nix
-        ];
+        modules = (import ./modules.nix inputs).modules;
       };
     };
 }

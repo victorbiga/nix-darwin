@@ -1,4 +1,4 @@
- { pkgs, custom, ... }: {
+{ pkgs, custom, ... }: {
 
   services.nix-daemon.enable = true;
   # Necessary for using flakes on this system.
