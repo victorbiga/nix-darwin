@@ -6,11 +6,11 @@
   gcl = "git clone";
 
   # git pull / git push
-  gpl = "git pull";
+  gl = "git pull";
   gplr = "git pull --rebase";
   gplum = "git pull upstream master";
 
-  gpu = "git push";
+  gp = "git push";
   gput = "git push --tags";
   gpuf = "git push --force";
   gpuu = "git push --set-upstream";
