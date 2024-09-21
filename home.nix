@@ -16,6 +16,8 @@
     terraform-docs
     terraform-ls
     wget
+    # TODO gpg is complicated :)
+    #gnupg
   ];
 
   home.file = {
@@ -63,6 +65,29 @@
       enable = true;
       userName = "Victor Biga";
       userEmail = custom.email;
+      package = pkgs.gitAndTools.gitFull;
+
+      # Replaces ~/.gitignore
+      ignores = [
+        ".cache/"
+        ".DS_Store"
+        ".idea/"
+        "*.swp"
+        "built-in-stubs.jar"
+        "dumb.rdb"
+        ".elixir_ls/"
+        ".vscode/"
+        "npm-debug.log"
+        "shell.nix"
+      ];
+      extraConfig = {
+        core = {
+          editor = "vim";
+        };
+        # TODO gpg is complicated :) 
+        #commit.gpgsign = true;
+        #gpg.program = "gpg2";
+      };
     };
     neovim = {
       enable = true;

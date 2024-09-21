@@ -6,7 +6,7 @@
   gcl = "git clone";
 
   # git pull / git push
-  gl = "git pull";
+  gpl = "git pull";
   gplr = "git pull --rebase";
   gplum = "git pull upstream master";
 
