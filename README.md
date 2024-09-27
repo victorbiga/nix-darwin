@@ -1,4 +1,6 @@
-| [<img src="https://daiderd.com/nix-darwin/images/nix-darwin.png" width="200px" alt="logo" />](https://github.com/LnL7/nix-darwin) | # mac nix-darwin bootstrap <br/> This guide provides instructions for setting up nix-darwin, a macOS framework based on Nix for managing macOS systems declaratively using Nix flakes. The steps outlined in this document cover the initial setup, which allows to have nix-darwin to manage your macOS in a declarative way. |
+# macOS nix-darwin Bootstrap <br/> 
+
+| [<img src="https://daiderd.com/nix-darwin/images/nix-darwin.png" width="200px" alt="logo" />](https://github.com/LnL7/nix-darwin) | This guide provides instructions for setting up nix-darwin, a macOS framework based on Nix for managing macOS systems declaratively using Nix flakes. The steps outlined in this document cover the initial setup, which allows to have nix-darwin to manage your macOS in a declarative way. |
 |---|---|
 
 ## Install x-code
