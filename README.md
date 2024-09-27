@@ -17,7 +17,7 @@ sudo installer -pkg Determinate\ Nix.pkg -target /
 rm Determinate\ Nix.pkg
 ```
 
-## Update hostname
+## Update hostname(optional)
 
 ```
 sudo scutil --set HostName Victors-Virtual-Machine 
@@ -27,7 +27,10 @@ sudo scutil --set ComputerName Victors-Virtual-Machine
 
 ## Switch to nix-darwin flake
 ```
+# if you did Update hostname step
 nix --extra-experimental-features "nix-command flakes" run -- nix-darwin switch --flake github:victorbiga/nixos-darwin
+# if you skipped Update hostname step
+nix --extra-experimental-features "nix-command flakes" run -- nix-darwin switch --flake "github:victorbiga/nixos-darwin#Victors-Virtual-Machine"
 ```
 
 ## End
