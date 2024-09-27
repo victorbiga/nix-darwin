@@ -56,3 +56,5 @@ Re-open shell to continue...
 
 ## Other notes
 - to rebuild system upon new changes in master run `darwin-rebuild switch --flake github:victorbiga/nixos-darwin/master` or `darwin-rebuild switch --flake github:victorbiga/nixos-darwin/master#Victors-Virtual-Machine` if you use your own machine name.
+- updating system run `nix flake update`
+- switching system to specific commit run `darwin-rebuild switch --flake github:victorbiga/nixos-darwin/163456c0ec6d6546b99c3daa7799b0f1691b25fa#Victors-Virtual-Machine`
